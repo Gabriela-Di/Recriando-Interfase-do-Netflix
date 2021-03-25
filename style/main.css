@@ -9,12 +9,18 @@
     box-sizing: border-box;
 }
 
+@font-face{
+    font-family: CustomFont;
+    src: url('./fonts/helvetica-45-light.otf');
+}
 
 body{
     background-color: var(--preta);
     background-image: linear-gradient( to right,black, #5a0404,transparent ); 
     font-family: "Times New Roman", Times, serif;
-    color: white;
+    /* font-family: CustomFont; */
+    font-weight: 500;
+    color: #FFFFFF;
     
 }
 
@@ -22,7 +28,7 @@ header .container{
     display:flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 
 
 }
@@ -31,6 +37,7 @@ header .logo {
     margin-left: 10px;
     color: var(--vermelho);
     font-family: "Arial Black",Times;
+    padding-right: 15px;
     font-size: 40px;
 
 }
