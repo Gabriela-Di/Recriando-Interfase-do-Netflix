@@ -27,7 +27,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['html'];
+	protected $helpers = ['html', 'url'];
 
 	/**
 	 * Constructor.
@@ -46,6 +46,7 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 		$this->parser = \Config\Services::parser();
+		$this->app_url = base_url();
 
 		
 	}

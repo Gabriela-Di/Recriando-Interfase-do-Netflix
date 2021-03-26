@@ -14,7 +14,7 @@
     src: url('./fonts/helvetica-45-light.otf');
 }
 
-body{
+.popcorn{
     background-color: var(--preta);
     background-image: linear-gradient( to right,black, #5a0404,transparent ); 
     font-family: "Arial", Times, serif;
@@ -24,7 +24,7 @@ body{
     
 }
 
-header .container{
+header .container-popcorn{
     display:flex;
     flex-direction: row;
     align-items: center;
@@ -97,10 +97,10 @@ header nav a:hover{
 .botao i{
     margin-right: 15px;
 }
-.container {
+.container-popcorn {
     margin-left: 40px;
 }
-.filme-principal .container {
+.filme-principal .banner-principal {
     width: 70%;
 }
 

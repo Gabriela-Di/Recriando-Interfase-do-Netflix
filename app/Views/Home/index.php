@@ -1,15 +1,15 @@
 <main>
     <div class="filme-principal">
-        <div class="container">
+        <div class="container-popcorn">
             <h3 class="titulo">JUSTICE LEAGUE ZACK SNYDER'S</h3>
             <p class="descricao">Determinado a garantir que o sacrifício final do Superman não foi em vão, Bruce Wayne alinha forças com Diana Prince com planos de recrutar  
                                     uma equipe de metahumanos para proteger o mundo de uma ameaça de proporções catastróficas que se aproxima.</p>
-            <div class="botoes">
-                <button role="button" class="botao">
+            <div class="botoes mb-4">
+                <button type="button" class="botao">
                     <i class="far fa-play-circle"></i>
                     ASSISTIR AGORA
                 </button>
-                <button role="button"class="botao">
+                <button type="button"class="botao">
                     <i class="fas fa-info-circle"></i>  
                     MAIS INFORMAÇÕES
                 </button>

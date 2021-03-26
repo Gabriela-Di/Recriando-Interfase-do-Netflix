@@ -2,9 +2,10 @@
     <script src="js/owl/jquery.min.js"></script>
     <script src="js/owl/owl.carousel.min.js"></script>
     <script src="js/owl/setup.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
    
 
 
-
+    </section>
 </body>
 </html>
