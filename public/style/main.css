@@ -82,7 +82,7 @@ header nav a:hover{
 
     padding:15px 30px;
     margin-right: 15px;
-    font-size: 12px;
+    font-size: 16px;
 
     cursor: pointer;
     transition: .3s ease all;
@@ -114,6 +114,66 @@ header nav a:hover{
     margin-top: 8px;
     
 }
+
+.box a img {
+    transition: transform .6s;
+    overflow: hidden;  
+}
+
+.box img:hover {
+    width:   120%;
+    height:  120%; 
+    transition: transform 0.3s;
+    -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
+
+.box img {
+    border-radius: 2px;
+}
+
+.link {
+    padding: 50px;
+  }
+  
+  .sub-links ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .sub-links a {
+    color: #AAAAAA;
+    text-decoration: none;
+  }
+  
+  .sub-links a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  
+  .logos a{
+    padding: 10px;
+  }
+  
+  .logo {
+      color:#AAAAAA;
+}
+.logo:hover{
+    color: #FFFFFF;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #AAAAAA;
+    margin: 10px;
+}
+
+    
 
 
 
