@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\HTTP\IncomingRequest;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -30,10 +31,20 @@ class BaseController extends Controller
 	protected $helpers = ['html', 'url', 'Sys_helper'];
 	public $ns_model;
 
+	public function __construct()
+	{
+		$this->session = \Config\Services::session();
+		$this->uri = current_url(true)->getSegments();
+		$this->routes = \Config\Services::router();
+		$this->request = \Config\Services::request();
+	}
+	
+
 	/**
 	 * Constructor.
 	 *
 	 * @param RequestInterface  $request
+	 * @param IncomingRequest $requests
 	 * @param ResponseInterface $response
 	 * @param LoggerInterface   $logger
 	 */
@@ -47,21 +58,22 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 		// $this->app_url = base_url();
+		
+
 		$this->parser = \Config\Services::parser();
 		$this->session = \Config\Services::session();
 		$this->SetInitialData();
 		$this->SetMdl();
 
-		
 	}
 	
 	public function display($view, $data = false)
 	{
-
+		$this->request->getPost();
 		if(!$data){
 			$data = array();
 		}
-
+		
 		// $data = array(
 		// 	'session' => $this->session->get('auth_user'),
 		// );

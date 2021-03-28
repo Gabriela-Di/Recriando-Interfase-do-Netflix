@@ -16,6 +16,15 @@ class Usuarios extends BaseController
         $this->display('usuarios/login');
     }
 
+    public function checkEmail()
+    {
+        $email = $this->request->getPost('email');
+        echo '<pre>';
+        print_r($email);
+        echo '</pre>';
+        die();
+    }
+
     public function newUser()
     {
         if($this->session->get('auth_user')){
