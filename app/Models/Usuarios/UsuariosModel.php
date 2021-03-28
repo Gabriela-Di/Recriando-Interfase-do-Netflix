@@ -52,4 +52,20 @@ class UsuariosModel extends Model
         ]
 
     ];
+
+    protected function hashPassword($data)
+    {
+        if (!$data['data']['senha']) {
+            return $data;
+        }
+
+        $data['data']['senha'] = password_hash($data['data']['senha'], PASSWORD_DEFAULT);
+
+        return $data;
+    }
+
+    public function getByEmail($email)
+    {
+        return $this->where('email', $email)->first();
+    }
 }

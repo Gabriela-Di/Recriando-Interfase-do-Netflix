@@ -15,8 +15,9 @@
     <title>{title}</title>
 </head>
 <body>
+    {if(!$basic_nav)}
     <section class="popcorn">
-
+    {endif}
     {if($auth_user)}
     <header>
         <div class="container-popcorn">
@@ -29,7 +30,7 @@
             </nav>
         </div>
     </header>
-    {else}
+    {elseif($nav_only)}
     <header>
         <div class="user_nav">
             <class class="logo ml-5">POPCORN|CIN</class>
@@ -38,4 +39,6 @@
             </nav>
         </div>
     </header>
+    {elseif($basic_nav)}
+
     {endif}

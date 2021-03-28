@@ -74,9 +74,6 @@ class BaseController extends Controller
 			$data = array();
 		}
 		
-		// $data = array(
-		// 	'session' => $this->session->get('auth_user'),
-		// );
 		echo $this->parser->setData($data)->render('template/header');
 
 		echo $this->parser->setData($data)->render($view);
@@ -100,6 +97,8 @@ class BaseController extends Controller
 			'msg' => $this->session->getFlashdata('msg'),
 			'msg_type' => $msg_type,
 			'auth_user' => $this->session->get('auth_user'),
+			'nav_only' => FALSE,
+			'basic_nav' => FALSE,
 		);
 		$this->parser->setData($dataArr);
 		

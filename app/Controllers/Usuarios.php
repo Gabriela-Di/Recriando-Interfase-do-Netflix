@@ -11,18 +11,22 @@ class Usuarios extends BaseController
 			return redirect()->to(base_url().'/home/index');
 		}
         
-        // $this->session->set('auth_user', ['id' => '999999999999999', 'nome' => 'teste', 'email' => 'emailteste']);
-
-        $this->display('usuarios/login');
+        $this->session->set('auth_user', ['id' => '999999999999999', 'nome' => 'teste', 'email' => 'emailteste']);
+        $data = array(
+            'nav_only' => TRUE
+        );
+        $this->display('usuarios/login', $data);
     }
 
     public function checkEmail()
     {
         $email = $this->request->getPost('email');
-        echo '<pre>';
-        print_r($email);
-        echo '</pre>';
-        die();
+        if($email){
+            $emailExists =  $this->mdl->getByEmail($email);
+            if(!$emailExists){
+                return redirect()->to(base_url().'/usuarios/registrar');
+            }
+        }
     }
 
     public function newUser()
@@ -32,5 +36,16 @@ class Usuarios extends BaseController
 		}
 
         $this->display('usuarios/cadastro');
+    }
+
+    public function registrar()
+    {
+        if($this->session->get('auth_user')){
+			return redirect()->to(base_url().'/home/index');
+		}
+        $data = array(
+            'basic_nav' => TRUE
+        );
+        $this->display('usuarios/registrar', $data);
     }
 }
