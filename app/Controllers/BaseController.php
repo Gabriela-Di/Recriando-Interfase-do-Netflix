@@ -28,6 +28,7 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = ['html', 'url', 'Sys_helper'];
+	public $ns_model;
 
 	/**
 	 * Constructor.
@@ -45,8 +46,11 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+		// $this->app_url = base_url();
 		$this->parser = \Config\Services::parser();
-		$this->app_url = base_url();
+		$this->session = \Config\Services::session();
+		$this->SetInitialData();
+		$this->SetMdl();
 
 		
 	}
@@ -55,13 +59,46 @@ class BaseController extends Controller
 	{
 
 		if(!$data){
-			$data = [];
+			$data = array();
 		}
 
+		// $data = array(
+		// 	'session' => $this->session->get('auth_user'),
+		// );
 		echo $this->parser->setData($data)->render('template/header');
 
 		echo $this->parser->setData($data)->render($view);
 		
 		echo $this->parser->setData($data)->render('template/footer');
+	}
+
+	public function SetInitialData()
+	{
+		//Initial data for view, assuming this it's gonna be used in all pages
+		$msg_type = '';
+		if($this->session->getFlashdata('msg_type') == 'success'){
+			$msg_type = 'msg-success';
+		}elseif($this->session->getFlashdata('msg_type') == 'alert'){
+			$msg_type = 'alert';
+		}
+		
+		$dataArr = array(
+			'app_url' => base_url().'/',
+			'title' => '',
+			'msg' => $this->session->getFlashdata('msg'),
+			'msg_type' => $msg_type,
+			'auth_user' => $this->session->get('auth_user'),
+		);
+		$this->parser->setData($dataArr);
+		
+	}
+
+	public function SetMdl()
+	{
+		//Let's call for MDL (model) for short code in Controllers
+		$namespace_call = ($this->ns_model) ? $this->ns_model : '\\App\\Models\\'.$this->module_name.'\\'.$this->module_name.'model';
+		if(class_exists($namespace_call)){
+			$this->mdl = new $namespace_call();
+		}
 	}
 }

@@ -1,3 +1,4 @@
+{if($auth_user)}
 <section class="link">
     <div class="logos mb-3">
         <a href="#"><i class="fab fa-facebook-square fa-2x logo"></i></a>
@@ -28,12 +29,12 @@
       <p>Popcorn, Inc.</p>
       <p>Everton Silva & Gabriela Dias | 2021</p>
     </footer>
-    
+{endif}
     <script src="https://kit.fontawesome.com/9ae8dc8fff.js"></script>
-    <script src="js/owl/jquery.min.js"></script>
-    <script src="js/owl/owl.carousel.min.js"></script>
-    <script src="js/owl/setup.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{app_url}js/owl/jquery.min.js"></script>
+    <script src="{app_url}js/owl/owl.carousel.min.js"></script>
+    <script src="{app_url}js/owl/setup.js"></script>
+    <script src="{app_url}bootstrap/js/bootstrap.bundle.min.js"></script>
    
 
 

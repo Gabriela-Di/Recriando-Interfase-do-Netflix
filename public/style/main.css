@@ -1,6 +1,7 @@
 :root{
     --vermelho:#E50914;
     --preta:#141414;
+    
 }
 
 *{
@@ -33,6 +34,14 @@ header .container-popcorn{
 
 }
 
+header .user_nav{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
 header .logo {
     margin-left: 10px;
     color: var(--vermelho);
@@ -41,6 +50,161 @@ header .logo {
     font-size: 40px;
 
 }
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.authLinks{
+    color: #fff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: .5rem;
+}
+
+.authLinks:hover{
+    text-decoration: none;
+}
+
+.redButton {
+    background-color: #e50914;
+    line-height: normal;
+    padding: 7px 17px;
+    font-weight: 400;
+    font-size: 1rem;
+    float: right;
+}
+
+.our-story-text{
+    position: relative;
+    width: 100%;
+    padding: 75px 0;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px){
+    .our-story-title {
+        font-size: 4rem;
+    }
+    .our-story-subtitle{
+        font-size: 1.625rem
+    }
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px){
+    .email-form-title {
+        max-width: none;
+        padding-bottom: 20px;
+        font-size: 1.2rem;
+    }
+}
+
+.email-form-title {
+    padding: 0 5%;
+    max-width: 750px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px){
+    .email-form {
+        max-width: 950px;
+        padding-top: .85rem;
+    }
+}
+
+
+
+.email-form {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.emailTextField{
+    height: 48px;
+    padding: 10px 10px 0;
+    width: 100%;
+    position: relative;
+    z-index: 100;
+}
+
+.input__group{
+    position: relative;
+    z-index: 10;
+    display: flex;
+    width: 600px;
+}
+
+.placeLabel{
+    position: absolute;
+    z-index: 150;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    top: 30px;
+    left: 18px;
+    transition: all 300ms ease-in;
+}
+@media only screen and (min-width: 1450px){
+    .emailTextField {
+        height: 70px;
+    }
+}
+
+
+.inline-form{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #e50914;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#e50914),to(#db0510));
+    background-image: -webkit-linear-gradient(top,#e50914,#db0510);
+    background-image: -moz- oldlinear-gradient(top,#e50914,#db0510);
+    background-image: -o-linear-gradient(top,#e50914,#db0510);
+    background-image: linear-gradient(to bottom,#e50914,#db0510);
+    -webkit-box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,.45);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
+}
+
+@media only screen and (min-width: 1450px){
+    .btn-extra-large {
+        font-size: 1.875rem;
+        min-height: 70px;
+        min-width: 200px;
+        width: 200px;
+    }
+}
+
+.cta-btn-text{
+    padding: .35rem 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+
 
 header nav a{
     text-decoration: none;
@@ -173,7 +337,137 @@ footer {
     margin: 10px;
 }
 
-    
+.user__login{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/netflix-image.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #b3b3b3;
+    background-blend-mode: multiply;
+}
+
+.logo-login{
+    position:absolute;
+    align-self: flex-start;
+    left: 10px;
+}
+.logo-login img{
+    height: 75px;
+    width:auto;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    background: rgba(000, 000, 000, 0.75);
+    border-radius: 4px;
+    width: 500px;
+    height: 500px;
+    padding: 60px 68px 40px;
+}
+
+.login .login__title{
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.login .login__group {
+    position: relative;
+    z-index: 10;
+    display: flex;
+
+}
+.login .login__group .login__group__label{
+    position: absolute;
+    z-index: 150;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    top: 30px;
+    left: 18px;
+    transition: all 300ms ease-in;
+}
+
+.login .login__group .login__group__input{
+    width: 100%;
+        position: relative;
+        z-index: 100;
+        background: #333;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: none;
+        opacity: 1;
+        font-size: 1rem;
+        color: #fff;
+        line-height: 50px;
+        padding: 12px 18px 0;
+}
+
+.login__group__input:focus{
+    top: 15px;
+    font-size: 3rem;
+}
+
+
+.login .login__group .login__group__label:focus{
+    top: 15px;
+    font-size: 3rem;
+}
+
+.login__sign-in {
+    margin: 24px 0 12px;
+    padding: 16px;
+    color: #fff;
+    background: #e50914;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login__secondary-cta{
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login__secondary-cta__text{
+    opacity: 1;
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.login__secondary-cta__text--need-help{
+    transition: all 0.3s ease-in;
+}
+.login__secondary-cta__text--need-help:hover{
+    text-decoration: underline;
+    color: #b3b3b3;
+}
+
+.user_anchor{
+    opacity: 1;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.user_anchor:hover{
+    opacity: 1;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: underline;
+}
 
 
 

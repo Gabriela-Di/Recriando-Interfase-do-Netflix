@@ -20,34 +20,34 @@
 <div class="carrosel-filmes">
     <div class="owl-carousel owl-theme box">
         <a href="">
-            <img class ="box-filme"src="img/mini1.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini1.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini2.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini2.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini3.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini3.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini4.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini4.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini5.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini5.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini6.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini6.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini7.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini7.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini8.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini8.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini9.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini9.jpg" alt=""srcset="">
         </a>
         <a href="">
-            <img class ="box-filme"src="img/mini10.jpg" alt=""srcset="">
+            <img class ="box-filme"src="{app_url}img/mini10.jpg" alt=""srcset="">
         </a>
         
     </div>
