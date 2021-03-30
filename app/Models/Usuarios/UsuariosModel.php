@@ -8,6 +8,7 @@ class UsuariosModel extends Model
 {
     protected $table = 'usuarios';
     protected $primaryKey = 'id';
+    
 
     protected $allowedFields = [
         'id',
@@ -44,12 +45,6 @@ class UsuariosModel extends Model
             'label' => 'Repita a Senha',
             'rules' => 'required|matches[senha]'
         ],
-        'ativo' => [
-            'label' => 'Ativo',
-        ],
-        'deletado' => [
-            'label' => 'Deletar',
-        ]
 
     ];
 
@@ -67,5 +62,28 @@ class UsuariosModel extends Model
     public function getByEmail($email)
     {
         return $this->where('email', $email)->first();
+    }
+
+    public function saveUser($usuario)
+    {
+
+        $usuario['id'] = create_guid();
+        $usuario['ativo'] = 1;
+        $usuario['deletado'] = 0;
+        $usuario['is_admin'] = 0;
+
+        
+        // dd($usuario);
+        $save = $this->db->table($this->table)->insert($usuario);
+
+        
+
+        if($save){
+            return TRUE; 
+        } else{
+            echo $this->db->getLastQuery();
+        }
+        return false;
+
     }
 }

@@ -26,7 +26,10 @@
                 <a href="{app_url}home/index">INICIO</a>
                 <a href="#">SÉRIES</a>
                 <a href="#">FILMES</a>
-                <a href="#">DOCUMENTÁRIOS</a>
+                <a href="#">DOCUMENTARIOS</a>
+                {if($auth_user)}
+                <a class="text-right" href="{app_url}usuarios/logout"> | SAIR</a>
+                {endif}
             </nav>
         </div>
     </header>
