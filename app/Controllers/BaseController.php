@@ -39,6 +39,12 @@ class BaseController extends Controller
 		$this->request = \Config\Services::request();
 	}
 	
+	/**
+	 * Instance of the main Request object.
+	 *
+	 * @var HTTP\IncomingRequest
+	 */
+	protected $request;
 
 	/**
 	 * Constructor.

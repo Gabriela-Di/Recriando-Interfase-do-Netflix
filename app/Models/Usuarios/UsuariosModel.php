@@ -48,16 +48,6 @@ class UsuariosModel extends Model
 
     ];
 
-    protected function hashPassword($data)
-    {
-        if (!$data['data']['senha']) {
-            return $data;
-        }
-
-        $data['data']['senha'] = password_hash($data['data']['senha'], PASSWORD_DEFAULT);
-
-        return $data;
-    }
 
     public function getByEmail($email)
     {
@@ -66,24 +56,40 @@ class UsuariosModel extends Model
 
     public function saveUser($usuario)
     {
+        $existEmail = $this->getByEmail($usuario['email']);
 
-        $usuario['id'] = create_guid();
-        $usuario['ativo'] = 1;
-        $usuario['deletado'] = 0;
-        $usuario['is_admin'] = 0;
-
-        
-        // dd($usuario);
-        $save = $this->db->table($this->table)->insert($usuario);
-
-        
-
-        if($save){
-            return TRUE; 
-        } else{
-            echo $this->db->getLastQuery();
+        if(!$existEmail){
+            $usuario['id'] = create_guid();
+            $usuario['ativo'] = 1;
+            $usuario['deletado'] = 0;
+            $usuario['is_admin'] = 0;
+            $usuario['senha'] = md5($usuario['senha']);
+    
+            
+            $save = $this->db->table($this->table)->insert($usuario);
+    
+            if($save){
+                return $usuario; 
+            }
         }
+        
         return false;
 
     }
+
+    public function SearchLogin($login){
+		$this->select('id, nome, email');
+		$this->where('ativo', '1');
+		$this->where('email', $login['email']);
+		$this->where('senha', md5($login['senha']));
+		$query = $this->get(1);
+		if($query){
+			if($query->resultID->num_rows > 0){
+				return $query->getResult('array')[0];
+			}		
+		}else{
+			// $this->RegisterLastError("Query search login failed: ");	
+		}
+		return false;
+	}
 }

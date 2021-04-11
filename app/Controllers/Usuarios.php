@@ -11,6 +11,22 @@ class Usuarios extends BaseController
 			return redirect()->to(base_url().'/home/index');
 		}
         
+        $userPost = $this->request->getPost();
+        if(!empty($userPost)){
+            $usuario = [
+                'email' => $userPost['email'],
+                'senha' => $userPost['senha'],
+            ];
+            $userExists = $this->mdl->SearchLogin($usuario);
+            if($userExists){
+                $this->session->set('auth_user', ['id' => $userExists['id'], 'nome' => $userExists['nome'], 'email' => $userExists['email']]); 
+                return redirect()->to(base_url().'/home/index');
+
+            }
+
+        }
+        
+
         // $this->session->set('auth_user', ['id' => '999999999999999', 'nome' => 'teste', 'email' => 'emailteste']);
         $data = array(
             'nav_only' => TRUE
@@ -26,6 +42,7 @@ class Usuarios extends BaseController
             if(!$emailExists){
                 return redirect()->to(base_url().'/usuarios/registrar');
             }
+            return redirect()->to(base_url().'/usuarios/login');
         }
     }
 
@@ -54,11 +71,10 @@ class Usuarios extends BaseController
             ];
             $saved = $this->mdl->saveUser($usuario);
             if($saved){
-                
-            }
-            dd($saved);
-            
+                $this->session->set('auth_user', ['id' => $saved['id'], 'nome' => $saved['nome'], 'email' => $saved['email']]); 
+                return redirect()->to(base_url().'/home/index');
 
+            }
         }
 
 
